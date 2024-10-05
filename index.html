@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button>Cick Me</button>
+    <button>Click</button>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => response.json())
+                    .then(json => {
+                        for (let x of json) {
+                            alert("Name: " + x.name);
+                        }
+                    })
+            });
+        });
+    </script>
+</body>
+</html>
